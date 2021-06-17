@@ -17,4 +17,17 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword); 
+generateBtn.addEventListener("click", writePassword); {
+  window.alert ("How many characters for your password?"); 
+    if (< 8) {
+      window.alert ("Must be between 8-128 characters");
+    }
+    else if (> 128) {
+      window.alert ("Must be between 8-128 characters");
+    }
+    else {
+      window.alert ("Would you like to include uppercase letters?");
+    }
+    else {
+      window.alert ("Would you like to include special characters?")
+    }
