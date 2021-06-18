@@ -17,10 +17,12 @@ function generatePassword() {
   var specChar = " `~!@#$%^&*()_+-={}|[]\\:\";'<>?,./";
 
   var lengthOfPassword = window.prompt("How many characters would you like for your password (must be between 8-128)?");
-    if (lengthOfPassword < 8 || lengthOfPassword > 128) {
-      window.alert("Password must be between 8-128 characters.");
-      return;
-    } 
+
+  if (lengthOfPassword < 8 || lengthOfPassword > 128) {
+    window.alert("Password must be between 8-128 characters.");
+    return '';
+  } 
+
   var requireUpperCase = window.confirm("Would you like to include uppercase letters?");
   var requireNumber = window.confirm("Would you like to include numbers?");
   var requireSpecChar = window.confirm("Would you like to include special characters?");
@@ -29,17 +31,17 @@ function generatePassword() {
 
   if (requireUpperCase) 
   {
-    var randomIndex = Math.floor(Math.random() * letters.length);
+    var randomIndex = getRandomIndex(letters.length);
     password += letters[randomIndex].toUpperCase();
   }
 
   if (requireNumber) {
-    var randomIndex = Math.floor(Math.random() * numbers.length);
+    var randomIndex = getRandomIndex(numbers.length);
     password += numbers[randomIndex].toUpperCase();
   }
 
   if (requireSpecChar) {
-    var randomIndex = Math.floor(Math.random() * specChar.length);
+    var randomIndex = getRandomIndex(specChar.length);
     password += specChar[randomIndex];
   }
 
@@ -47,11 +49,26 @@ function generatePassword() {
 
   for(var i = 1; i <= remainingChars; i++) 
   {
-    var randomIndex = Math.floor(Math.random() * letters.length);
+    var randomIndex = getRandomIndex(letters.length);
     var letter = letters[randomIndex];
-    console.log(`index: ${randomIndex}; letter: ${letter}`);
     password += letter;
   }
 
-  return password;
+  var jumbledPassword = '';
+
+  // randomize the password
+  for (var i = 1; i <= lengthOfPassword; i++) {
+    var randomIndex = getRandomIndex(password.length);
+    jumbledPassword += password[randomIndex];
+
+    if (password.length > 1) {
+      password = password.slice(0, randomIndex) + password.slice(randomIndex + 1);
+    }
+  }
+
+  return jumbledPassword;
+}
+
+function getRandomIndex(length) {
+  return Math.floor(Math.random() * length);
 }
