@@ -13,4 +13,6 @@
 * cleaned up extra spaces and ensured formatting was correct throughout
 * added sub-folders to better organize the assets in the project
 
+The site is deployed at https://lyndsielane.github.io/password-generator/ 
+
 ![photo description](https://github.com/lyndsielane/password-generator/blob/main/Assets/Photos/127.0.0.1_5501_Develop_index.html.png?raw=true)
