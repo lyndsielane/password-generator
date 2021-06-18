@@ -16,7 +16,10 @@ function generatePassword() {
   var numbers = "0123456789";
   var specChar = " `~!@#$%^&*()_+-={}|[]\\:\";'<>?,./";
 
-  var lengthOfPassword = window.prompt("How many characters would you like for your password (must be between 8-128)?");//TODO: can I add an if/else to refuse numbers outside of the required length?
+  var lengthOfPassword = window.prompt("How many characters would you like for your password (must be between 8-128)?");
+    if (x < 8 || > 128) {
+      window.alert("Password must be between 8-128 characters.");
+    } //TODO: can I add an if/else to refuse numbers outside of the required length?
   var requireUpperCase = window.confirm("Would you like to include uppercase letters?");
   var requireNumber = window.confirm("Would you like to include numbers?");
   var requireSpecChar = window.confirm("Would you like to include special characters?");
