@@ -20,7 +20,7 @@ function generatePassword() {
     if (lengthOfPassword < 8 || lengthOfPassword > 128) {
       window.alert("Password must be between 8-128 characters.");
       return;
-    } //TODO: can I add an if/else to refuse numbers outside of the required length?
+    } 
   var requireUpperCase = window.confirm("Would you like to include uppercase letters?");
   var requireNumber = window.confirm("Would you like to include numbers?");
   var requireSpecChar = window.confirm("Would you like to include special characters?");
@@ -52,10 +52,6 @@ function generatePassword() {
     console.log(`index: ${randomIndex}; letter: ${letter}`);
     password += letter;
   }
-
-  //TODO: now randomize the password before returning.
-
-  //TODO: Possible improvement would be to allow any number of requirements and to a sanity check before returning to confirm that the requirements are met.
 
   return password;
 }
